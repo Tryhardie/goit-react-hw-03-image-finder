@@ -1,9 +1,21 @@
-const ImageGalleryItem = () => {
+import PropTypes from 'prop-types';
+
+const ImageGalleryItem = ({ webformatURL, largeImageURL, enlargeImage }) => {
   return (
     <li>
-      <img src="" alt="" />
+      <img
+        src={webformatURL}
+        alt=""
+        onClick={() => enlargeImage(largeImageURL)}
+      />
     </li>
   );
 };
 
-export default ImageGalleryItem
+ImageGalleryItem.propTypes = {
+  webformatURL: PropTypes.string.isRequired,
+  largeImageURL: PropTypes.string.isRequired,
+  enlargeImage: PropTypes.func.isRequired,
+};
+
+export default ImageGalleryItem;
