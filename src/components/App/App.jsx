@@ -67,7 +67,7 @@ class App extends Component {
       <>
         <Searchbar onSubmit={this.handleSearchSubmit} />
         {isLoading && <Loader />}
-        {error && Notify.failure(`${error}`)}
+        {error && Notify.failure(`${error.massage}`)}
         {images.length === 0 &&
           !isLoading &&
           searchQuery &&
