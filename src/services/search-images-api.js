@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-URL = 'https://pixabay.com/api/';
+const URL = 'https://pixabay.com/api/';
 
 const fetchImages = async (searchQuery, page = 1) => {
   const response = await axios.get(URL, {
