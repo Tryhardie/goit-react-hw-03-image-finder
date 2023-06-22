@@ -12,6 +12,7 @@ const fetchImages = async (searchQuery, page = 1) => {
       image_type: 'photo',
       orientation: 'horizontal',
       per_page: 12,
+      safesearch: true,
     },
   });
   return response.data;
