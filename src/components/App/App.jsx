@@ -5,6 +5,7 @@ import Loader from 'components/Loader/Loader';
 import Modal from 'components/Modal/Modal';
 import fetchImages from 'services/search-images-api';
 import { Notify } from 'notiflix';
+import AppStyled from './App.styled';
 
 class App extends Component {
   state = {
@@ -65,28 +66,30 @@ class App extends Component {
 
     return (
       <>
-        <Searchbar onSubmit={this.handleSearchSubmit} />
-        {isLoading && <Loader />}
-        {error && Notify.failure(`${error.massage}`)}
-        {images.length === 0 &&
-          !isLoading &&
-          searchQuery &&
-          !error &&
-          Notify.warning(`Images matching ${searchQuery} not found.`)}
-        {images.length > 0 && !isLoading && (
-          <ImageGallery
-            images={images}
-            loadMore={loadMore}
-            handleLoadMore={this.handleLoadMore}
-            enlargeImage={this.enlargeImage}
-          />
-        )}
-        {modal.openModal && (
-          <Modal
-            largeImageURL={modal.largeImageURL}
-            handleClose={this.closeImage}
-          />
-        )}
+        <AppStyled>
+          <Searchbar onSubmit={this.handleSearchSubmit} />
+          {isLoading && <Loader />}
+          {error && Notify.failure(`${error.massage}`)}
+          {images.length === 0 &&
+            !isLoading &&
+            searchQuery &&
+            !error &&
+            Notify.warning(`Images matching ${searchQuery} not found.`)}
+          {images.length > 0 && !isLoading && (
+            <ImageGallery
+              images={images}
+              loadMore={loadMore}
+              handleLoadMore={this.handleLoadMore}
+              enlargeImage={this.enlargeImage}
+            />
+          )}
+          {modal.openModal && (
+            <Modal
+              largeImageURL={modal.largeImageURL}
+              closeImage={this.closeImage}
+            />
+          )}
+        </AppStyled>
       </>
     );
   }

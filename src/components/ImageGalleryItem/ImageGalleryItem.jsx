@@ -1,14 +1,15 @@
 import PropTypes from 'prop-types';
+import { GalleryItem, GalleryItemImg } from './ImageGalleryItem.styled';
 
 const ImageGalleryItem = ({ webformatURL, largeImageURL, enlargeImage }) => {
   return (
-    <li>
-      <img
+    <GalleryItem>
+      <GalleryItemImg
         src={webformatURL}
         alt=""
         onClick={() => enlargeImage(largeImageURL)}
       />
-    </li>
+    </GalleryItem>
   );
 };
 

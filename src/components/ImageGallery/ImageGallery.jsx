@@ -1,11 +1,12 @@
 import ImageGalleryItem from 'components/ImageGalleryItem/ImageGalleryItem';
 import Button from 'components/Button/Button';
 import PropTypes from 'prop-types';
+import ImageGalleryStyled from './ImageGallery.styled';
 
 const ImageGallery = ({ images, enlargeImage, handleLoadMore, loadMore }) => {
   return (
     <>
-      <ul>
+      <ImageGalleryStyled>
         {images.map(({ id, webformatURL, largeImageURL }) => (
           <ImageGalleryItem
             key={id}
@@ -14,7 +15,7 @@ const ImageGallery = ({ images, enlargeImage, handleLoadMore, loadMore }) => {
             enlargeImage={enlargeImage}
           />
         ))}
-      </ul>
+      </ImageGalleryStyled>
       {loadMore && <Button handleLoadMore={handleLoadMore} />}
     </>
   );
